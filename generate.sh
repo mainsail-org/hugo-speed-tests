@@ -4,21 +4,21 @@
 echo "how many folders do you want to generate?"
 read number_of_files
 
-# in case the directory doesn't exit. first run case scenario.
+# created the content/posts in case the directory doesn't exit (first run)
 # -p argument takes care of checking if already exists or not.
 mkdir -p content/posts
 
 # clear up the old content folder in case it had stuff.
 rm -f -R content/posts/*
 
-# get started. here the message is to let the user know. otherwise it looks like the script is hanging
+#  show a message, otherwise it looks like the script is hanging
 echo "working on it...."
 
 # simple loop with cp command
 i=0
 while [[ $i -le $number_of_files ]]
 do
-	cp -R "clone" "content/posts/thread-"$i
+	cp -R "sample-content" "content/posts/post-"$i
 	(( i=i+1 ))
 done
 

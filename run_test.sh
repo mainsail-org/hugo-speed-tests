@@ -2,9 +2,17 @@
 
 # get the specs of the machine and time.
 datetime=$(date +"%Y-%m-%d %T")
-cpus=$(nproc)
-cpu_type=$(cat /proc/cpuinfo | grep 'model name' | uniq | grep -o "CPU.*")
-free_ram=$(free -m  | grep ^Mem | tr -s ' ' | cut -d ' ' -f 4)
+cpus=$(getconf _NPROCESSORS_ONLN)
+os=$(echo OSTYPE)
+
+if [ "$os" = "linux-gnu" ]; then
+    cpu_type=$(cat /proc/cpuinfo | grep 'model name' | uniq | grep -o "CPU.*")
+    free_ram=$(free -m  | grep ^Mem | tr -s ' ' | cut -d ' ' -f 4)
+else
+    cpu_type=$(sysctl -n machdep.cpu.brand_string)
+    free_ram=$(top -l 1 | grep PhysMem: | awk '{print $6}')
+fi
+
 
 # make a data directory in case it doesn't exist
 mkdir -p data
@@ -12,7 +20,7 @@ mkdir -p data
 # run once, create the file with the header
 filename=data/results-$datetime.csv
 
-echo datetime, cpus, cpu-type, free-ram, pages, paginator-pages, static-files, non-page, total > "$filename"
+echo datetime, cpus, cpu-type, free-ram, pages, paginator-pages, static-files, non-page, total-time > "$filename"
 
 echo "how many times do you want to run?"
 read number_of_runs
@@ -37,12 +45,12 @@ do
     # grep -Eo [0-9]+ -- this grabs only the number
     # both greps give us the results but each is on a new line
     # use tr which stands for translate or delete characters to replace \n with a comma.
-    # here, the outcome has an extra comma at the end, but we cut it using -1 in the next step.  
+    # here, the outcome has an extra comma at the end, but we cut it using %? in the next step.  
     hugo=$(hugo | grep -o 'Pages.*\|Total in.*\|Paginator pages.*\|Static files.*\|Non-page.*' | grep -Eo [0-9]+ | tr '\n' ',')
 
     cd .. 
 
-    echo "$datetime","$cpus","$cpu_type","$free_ram","${hugo:0:-1}" >> "$filename"
+    echo "$datetime","$cpus","$cpu_type","$free_ram","${hugo%?}" >> "$filename"
 
     sleep "$sleep_duration"
     (( i=i+1 ))

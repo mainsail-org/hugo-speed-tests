@@ -1,4 +1,0 @@
-datetime, cpus, cpu-type, free-ram, pages, paginator-pages, static-files, non-page, total
-2020-04-06 21:10:10,8,CPU @ 1.90GHz,8376,110,20,505,13,416
-2020-04-06 21:10:10,8,CPU @ 1.90GHz,8376,110,20,505,13,341
-2020-04-06 21:10:10,8,CPU @ 1.90GHz,8376,110,20,505,13,333
