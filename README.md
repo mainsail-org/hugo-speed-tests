@@ -16,9 +16,9 @@ The scripts will not work on Windows. They were tested on macOS (bash and zsh) a
 - `sample-content/`: a directory with a sample post and 5 images. It is meant to represent an "average" post. It can be modified to test for different type of content.  
 - `generate.sh`: a script that generates content for the test. It prompts the user for how many times they want to clone the `sample-content` directory.  
 - `content/posts`: this directory is dynamically created by `generate.sh`. It has the dummy content usually in the thousands of posts. It is always in `.gitignore`.   
-- `benchmark`: this is what's actually getting bencharmed: a hugo site, configuration and theme. The theme is very minimal to make sure very few things get in the way of an optimal build time.  
+- `benchmark`: this is what's actually getting benchmarked: a hugo site, configuration, content and theme. The theme is very minimal to make sure very few things get in the way of an optimal build time.  
 - `run_test.sh`: the script that runs the test and captures the output in csv format.
-- `data/`: where the csv results are. Includes speed results and details of machine.
+- `data/`: where the csv results are. Includes speed results and details of machine. also in `.gitignore`
 
 # How to run 
 
@@ -46,8 +46,9 @@ then
 - `./run_test.sh`
 
 ---
+## Details 
 
-## Step 1: Generate dummy content
+### Step 1: Generate dummy content
 
 Generate dummy content by running the script `generate.sh` . It will prompt you to enter how many copies you want. 
 
@@ -60,7 +61,7 @@ Make sure the script has the right permissions then run it by using the followin
 
 The directory `content/posts` is in `.gitignore` to avoid pushing all sorts of random content to github.
 
-## Step 2: Check your hugo install
+### Step 2: Check your hugo install
 
 Make sure you have hugo running and double check that the theme is working.
 
@@ -71,7 +72,7 @@ Make sure you have hugo running and double check that the theme is working.
 
 TO DO: simplify this step by having the default theme stored here, not as sub-module. 
 
-## Step 3: run test
+### Step 3: run test
 
 Copy the content you generated in the previous step from `content/posts/` to `benchmark/content/posts`. 
 
@@ -87,19 +88,19 @@ The script `run_test` will prompt you for:
 - how many times you want to run `hugo build`. 
 - time to wait between the runs.
 
-The time it takes for a build changes slightly between runs even on the same machine. Also Multiple runs let you capture caching effect.
+The time it takes for a build changes slightly between runs even on the same machine. Also Multiple runs let you capture caching effect.  
 
-The time to wait between runs let your machine cool off and ease the pressure off the memory. It creates more "fair" measurments.
+The time to wait between runs lets your machine cool off and eases the pressure off the memory. It creates more "fair" measurments.
 
 The output is saved as a csv. It contains the build time and the specs of the machine.
 
 TODO: think about better metrics to capture.
 
-### Hugo output:  
+#### Hugo output:  
 
 ![hugo output](docs/hugo-screenshot.png)  
 
-### CSV file:  
+#### CSV file:  
 
 Columns:  
 - datetime
@@ -151,7 +152,9 @@ Posts included both tags and categories and the build generated XML sitemap and 
 
 ![advanced](docs/advanced-benchmark.png)
 
+# Next step
 
+Try to estimate the CO2 emissions that could be saved by switching from Jekyll to Hugo to build all the pages on GitHub.
 
 ## Useful links.
 
