@@ -1,14 +1,18 @@
 # README 
 
-[Hugo](https://gohugo.io/) is an open source static site generator implemented in golang. It is what I use for paulromer.net. Hugo's site brags about it being "The world’s fastest framework for building websites". It is implemented in golang and takes advantage of parallel processing.
+[Hugo](https://gohugo.io/) is an open source static site generator implemented in golang. According to Hugo's website, it is the world's fastest framework for building sites.
 
-This repo has scripts for running stress tests on hugo and capturing the test results in csv format.
+This repo has scripts for benchmarking how fast hugo really is. The test results are generated as csv.
 
-The goal is to:
-- measure how fast hugo really is, compare it to other site generators, compare the different versions within hugo.  
-- measure the impact of that speed on saving in CO2 emissions (applicable for really large scale projects like building all of github pages by using hugo instead of jekyll).  
-- explore the efficiency of optimizing a theme and tweaking build parameters.
- 
+The main goals are to:
+- measure how fast hugo really is, compare it to other site generators, 
+- compare the different versions within hugo, to see if changes over time are slowing it down,  
+- measure the efficiency of optimizing a theme and tweaking build parameters.
+
+
+A fun side goal is to measure the impact of that speed on savings in CO2 emissions. This is applicable for really large scale projects like building all of github pages by using hugo instead of jekyll.   
+
+**Operating system:**  
 The scripts will not work on Windows. They were tested on macOS (bash and zsh) and Ubuntu.
 
 # What's in this directory?
@@ -59,7 +63,7 @@ Make sure the script has the right permissions then run it by using the followin
 - `chmod +x generate.sh`
 - `./generate.sh`
 
-The directory `content/posts` is in `.gitignore` to avoid pushing all sorts of random content to github.
+The target directory where the files are generated is `content/posts`. It is in `.gitignore` to avoid pushing all sorts of random content to github.
 
 ### Step 2: Check your hugo install
 
@@ -69,8 +73,6 @@ Make sure you have hugo running and double check that the theme is working.
 - `git submodule init`
 - `git submodule update`
 - `hugo` or `hugo server`
-
-TO DO: simplify this step by having the default theme stored here, not as sub-module. 
 
 ### Step 3: run test
 
@@ -93,8 +95,6 @@ The time it takes for a build changes slightly between runs even on the same mac
 The time to wait between runs lets your machine cool off and eases the pressure off the memory. It creates more "fair" measurments.
 
 The output is saved as a csv. It contains the build time and the specs of the machine.
-
-TODO: think about better metrics to capture.
 
 #### Hugo output:  
 
@@ -132,8 +132,6 @@ else
 fi
 ```
 
-TO DO: see if there are OS indepedents commands.
-
 Double check these commands when the script runs on different operating systems or releases.
 
 # Existing benchmark
@@ -154,7 +152,7 @@ Posts included both tags and categories and the build generated XML sitemap and 
 
 # Next step
 
-Try to estimate the CO2 emissions that could be saved by switching from Jekyll to Hugo to build all the pages on GitHub.
+Eestimate the CO2 emissions that could be saved by switching from Jekyll to Hugo for some like giant scale projects, like building all the GitHub pages.
 
 ## Useful links.
 
