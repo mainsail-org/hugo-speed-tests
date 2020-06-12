@@ -17,8 +17,8 @@ The scripts will not work on Windows. They were tested on macOS (bash and zsh) a
 
 # What's in this directory?
 
-- `sample-content/`: a directory with a sample post and 5 images. It is meant to represent an "average" post. It can be modified to test for different type of content.  
-- `generate.sh`: a script that generates content for the test. It prompts the user for how many times they want to clone the `sample-content` directory.  
+- `sample-content/`: a directory with a sample post and 5 images. It is meant to represent an "average" post. It can be modified to test for a different type of content.  
+- `generate.sh`: a script that generates content for the test. It prompts the user how many times they want to clone the `sample-content` directory.  
 - `content/posts`: this directory is dynamically created by `generate.sh`. It has the dummy content usually in the thousands of posts. It is always in `.gitignore`.   
 - `benchmark`: this is what's actually getting benchmarked: a hugo site, configuration, content and theme. The theme is very minimal to make sure very few things get in the way of an optimal build time.  
 - `run_test.sh`: the script that runs the test and captures the output in csv format.
@@ -90,7 +90,7 @@ The script `run_test` will prompt you for:
 - how many times you want to run `hugo build`. 
 - time to wait between the runs.
 
-The time it takes for a build changes slightly between runs even on the same machine. Also Multiple runs let you capture caching effect.  
+The time it takes for a build changes slightly between runs even on the same machine. Also, multiple runs let you capture caching effect.  
 
 The time to wait between runs lets your machine cool off and eases the pressure off the memory. It creates more "fair" measurments.
 
@@ -152,9 +152,9 @@ Posts included both tags and categories and the build generated XML sitemap and 
 
 # Next step
 
-Eestimate the CO2 emissions that could be saved by switching from Jekyll to Hugo for some like giant scale projects, like building all the GitHub pages.
+Estimate the CO2 emissions that could be saved by switching from Jekyll to Hugo for some giant scale projects, like building all the GitHub pages.
 
 ## Useful links.
 
-- Hubo build performance: https://gohugo.io/troubleshooting/build-performance/
+- Hugo build performance: https://gohugo.io/troubleshooting/build-performance/
 - Hugo vs Jekyll benchmark: https://forestry.io/blog/hugo-vs-jekyll-benchmark/
