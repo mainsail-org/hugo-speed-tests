@@ -17,7 +17,7 @@ A fun side goal is to:
 **Operating system:**  
 The scripts will not work on Windows. They were tested on macOS (bash and zsh) and Ubuntu.
 
-# What's in this directory?
+# Repo structure
 
 - `sample-content/`: a directory with a sample post and 5 images. It is meant to represent an "average" post. 
 - `data/`: a directory where the test results are.
@@ -75,7 +75,7 @@ Make sure you have hugo running and double check that the theme is working.
 
 This repo is configured with the default hugo theme " Ananke" featured in this [quick start](https://gohugo.io/getting-started/quick-start/).
 
-### run test
+### Run the tests
 
 The commands are: 
 
