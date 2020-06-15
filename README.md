@@ -20,10 +20,10 @@ The scripts will not work on Windows. They were tested on macOS (bash and zsh) a
 # What's in this directory?
 
 - `sample-content/`: a directory with a sample post and 5 images. It is meant to represent an "average" post. You can modify it to test for different types of content.  
-- `generate.sh`: a script that generates content for the test. It prompts the user how many times they want to clone the `sample-content` directory.   
-- `benchmark`: this is what's actually getting benchmarked: a hugo site, configuration, content and theme. 
-- `run_test.sh`: the script that runs the test and captures the output in csv format.
 - `data/`: where the csv results are. Includes speed results and details of machine. also in `.gitignore`
+- `benchmark/`: this is what's actually getting benchmarked: a hugo site, configuration, content and theme. 
+- `generate.sh`: a script that generates content for the test. It prompts the user how many times they want to clone the `sample-content` directory.   
+- `run_test.sh`: the script that runs the test and captures the output in csv format.
 
 # How to run 
 
@@ -49,7 +49,7 @@ then
 ---
 ## Details 
 
-### Step 1: Generate dummy content
+### Generate dummy content
 
 Generate dummy content by running the script `generate.sh`. It will prompt you to enter how many copies you want. 
 
@@ -62,7 +62,7 @@ Make sure the script has the right permissions then run it by using the followin
 
 The target directory where the files are generated is `content/posts`. It is in `.gitignore` to avoid pushing all sorts of random content to github.
 
-### Step 2: Check your hugo install
+### Check your hugo install
 
 Install Hugo. Follow instructions on [https://gohugo.io/getting-started/installing/](https://gohugo.io/getting-started/installing/) 
 
@@ -75,7 +75,7 @@ Make sure you have hugo running and double check that the theme is working.
 
 This repo is configured with the default hugo theme " Ananke" featured in this [quick start](https://gohugo.io/getting-started/quick-start/).
 
-### Step 3: run test
+### run test
 
 The commands are: 
 
@@ -110,7 +110,10 @@ Columns:
 - total-time-milliseconds
 
 
+#### Hardware specs 
+
 CPU count was generated with:  
+
 ```bash 
 cpus=$(getconf _NPROCESSORS_ONLN)
 ```
