@@ -19,11 +19,11 @@ The scripts will not work on Windows. They were tested on macOS (bash and zsh) a
 
 # What's in this directory?
 
-- `sample-content/`: a directory with a sample post and 5 images. It is meant to represent an "average" post. You can modify it to test for different types of content.  
-- `data/`: where the csv results are. Includes speed results and details of machine. also in `.gitignore`
-- `benchmark/`: this is what's actually getting benchmarked: a hugo site, configuration, content and theme. 
+- `sample-content/`: a directory with a sample post and 5 images. It is meant to represent an "average" post. 
+- `data/`: a directory where the test results are.
+- `benchmark/`: what's actually getting benchmarked: a hugo site, configuration, content and theme. 
 - `generate.sh`: a script that generates content for the test. It prompts the user how many times they want to clone the `sample-content` directory.   
-- `run_test.sh`: the script that runs the test and captures the output in csv format.
+- `run_test.sh`: the script that runs the test and saves the output as csv file with a time stamp in `data/`.
 
 # How to run 
 
@@ -60,7 +60,7 @@ Make sure the script has the right permissions then run it by using the followin
 - `chmod +x generate.sh`
 - `./generate.sh`
 
-The target directory where the files are generated is `content/posts`. It is in `.gitignore` to avoid pushing all sorts of random content to github.
+The target directory where the files are generated is `benchmark/content/posts`. 
 
 ### Check your hugo install
 
