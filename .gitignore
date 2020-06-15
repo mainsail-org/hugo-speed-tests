@@ -1,0 +1,5 @@
+benchmark/public/
+benchmark/content/
+data/
+
+.DS_Store
