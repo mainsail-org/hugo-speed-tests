@@ -149,10 +149,6 @@ Posts included both tags and categories and the build generated XML sitemap and 
 
 ![advanced](docs/advanced-benchmark.png)
 
-# Next step
-
-Estimate the CO2 emissions that could be saved by switching from Jekyll to Hugo for some giant scale projects, like building all the GitHub pages.
-
 ## Useful links.
 
 - Hugo build performance: https://gohugo.io/troubleshooting/build-performance/
